@@ -12,6 +12,76 @@ a {
     color: inherit;
 }
 
+/* ===== Blur Text Animation ===== */
+.top-header {
+    text-align: center;
+    margin-top: 40px;
+    color: white;
+    background: #111;
+    padding: 40px 20px;
+    border-radius: 10px;
+    animation: fadeInBg 1.5s ease-in-out forwards;
+}
+
+.top-header h1,
+.top-header p,
+.top-header .contact-info a {
+    opacity: 0;
+    filter: blur(10px);
+    animation: blurIn 1s ease-in-out forwards;
+}
+
+/* Thoda delay har element me */
+.top-header h1 {
+    animation-delay: 0.3s;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+.top-header p:nth-of-type(1) {
+    animation-delay: 0.6s;
+}
+
+.top-header p:nth-of-type(2) {
+    animation-delay: 0.9s;
+}
+
+.top-header .contact-info {
+    margin-top: 10px;
+}
+
+.top-header .contact-info a {
+    color: #00e5ff;
+    text-decoration: none;
+    font-weight: bold;
+    animation-delay: 1.2s;
+}
+
+.top-header .contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Keyframes ===== */
+@keyframes blurIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* Optional: background fade-in effect */
+@keyframes fadeInBg {
+    from { background-color: transparent; }
+    to { background-color: #111; }
+}
+
+
 /* ===== Top Header ===== */
 .top-header {
     background: linear-gradient(90deg, #f4cc3a, #004aad);
@@ -19,6 +89,7 @@ a {
     text-align: center;
     padding: 20px;
     font-size: 10px;
+    
 }
 
 .top-header h1 {
@@ -40,6 +111,8 @@ a {
     color: white;
     margin: 0 8px;
 }
+
+
 
 /* ===== Navigation Bar ===== */
 nav {
@@ -90,7 +163,7 @@ nav ul li a {
 }
 
 .bio h3 {
-    color: #004aad;
+    color: #ffffff;
     font-size: 18px;
     margin-top: 0;
 }
@@ -113,7 +186,7 @@ nav ul li a {
 
 /* ===== Footer ===== */
 footer {
-    background: #f8f8f8;
+    background: linear-gradient(90deg, #f4cc3a, #004aad);
     text-align: center;
     padding: 10px;
     border-top: 1px solid #ddd;
@@ -126,5 +199,39 @@ footer {
     }
 }
 
+/* ===== Dark Silk Flowing Background Animation ===== */
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #0a0a0a;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Silk animation layer */
+.silk-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* content ke peeche rahe */
+    background: linear-gradient(270deg, #004aad, #00e5ff, #f4cc3a, #004aad);
+    background-size: 800% 800%;
+    animation: silkMove 15s ease infinite;
+    filter: blur(60px); /* silky smooth blur */
+    opacity: 0.5; /* subtle and readable */
+    mix-blend-mode: screen; /* glowing effect */
+}
+
+/* Smooth flowing animation */
+@keyframes silkMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 
